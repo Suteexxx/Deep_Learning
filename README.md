@@ -1,504 +1,521 @@
-🧠 Artificial Neural Network (ANN)
-📌 Introduction
 
-An Artificial Neural Network (ANN) is a machine learning model inspired by the biological neural network of the human brain. It consists of interconnected nodes (neurons) organized into layers that learn patterns from data and make predictions.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Artificial Neural Network (ANN) Documentation</title>
 
-ANNs are widely used in:
+<style>
+body{
+    font-family: Arial, sans-serif;
+    line-height: 1.8;
+    margin: 40px;
+    background-color:#f5f7fa;
+    color:#333;
+}
+.container{
+    background:white;
+    padding:40px;
+    border-radius:10px;
+    box-shadow:0 0 15px rgba(0,0,0,0.1);
+}
+h1,h2,h3{
+    color:#1E3A8A;
+}
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:15px;
+}
+table,th,td{
+    border:1px solid #ddd;
+}
+th{
+    background:#1E3A8A;
+    color:white;
+}
+th,td{
+    padding:12px;
+    text-align:left;
+}
+code{
+    background:#eee;
+    padding:3px 5px;
+    border-radius:5px;
+}
+ul li{
+    margin-bottom:8px;
+}
+</style>
+</head>
 
-Image Classification
-Speech Recognition
-Sentiment Analysis
-Recommendation Systems
-Medical Diagnosis
-Financial Forecasting
-📚 Table of Contents
-Architecture of ANN
-Working of ANN
-Hyperparameters
-Activation Functions
-Loss Functions
-Optimizers
-Advantages
-Disadvantages
-Applications
-1. Architecture of ANN
+<body>
 
-An ANN generally consists of three types of layers:
+<div class="container">
 
-Input Layer
+<h1>🧠 Artificial Neural Network (ANN)</h1>
 
-Receives features from the dataset.
+<h2>📌 Introduction</h2>
 
-Hidden Layer(s)
+<p>
+Artificial Neural Networks (ANNs) are machine learning models inspired by the human brain.
+They consist of interconnected neurons arranged into layers that learn patterns from data
+to perform prediction and classification tasks.
+</p>
 
-Performs computations and extracts patterns.
+<h3>Applications</h3>
 
-Output Layer
+<ul>
+<li>Image Classification</li>
+<li>Speech Recognition</li>
+<li>Medical Diagnosis</li>
+<li>Sentiment Analysis</li>
+<li>Recommendation Systems</li>
+<li>Stock Prediction</li>
+</ul>
 
-Produces the final prediction.
+<hr>
 
+<h2>1. Architecture of ANN</h2>
+
+<p>An ANN contains three types of layers:</p>
+
+<h3>Input Layer</h3>
+<p>Receives features from the dataset.</p>
+
+<h3>Hidden Layer(s)</h3>
+<p>Performs computations and extracts patterns.</p>
+
+<h3>Output Layer</h3>
+<p>Produces final prediction.</p>
+
+<pre>
 Input Layer → Hidden Layer(s) → Output Layer
+</pre>
 
-Example:
+<hr>
 
-784 Inputs → 128 Neurons → 64 Neurons → 10 Outputs
-2. Working of ANN
-Step 1: Forward Propagation
+<h2>2. Working of ANN</h2>
 
-Input data passes through neurons.
+<h3>Step 1: Forward Propagation</h3>
 
-For each neuron:
+<p>
+Each neuron computes:
+</p>
 
-z=wX+b
+<pre>
+z = wX + b
+a = f(z)
+</pre>
 
 where:
 
-w = weights
-X = input
-b = bias
+<ul>
+<li>w = weights</li>
+<li>X = input</li>
+<li>b = bias</li>
+<li>f = activation function</li>
+</ul>
 
-Output becomes
+<h3>Step 2: Loss Calculation</h3>
 
-a=f(z)
+<p>
+Difference between actual and predicted values is measured.
+</p>
 
-where f is the activation function.
-
-Step 2: Loss Calculation
-
-Difference between actual and predicted values is measured using a loss function.
-
-Example:
-
+<pre>
 Actual = 1
 Predicted = 0.8
 
 Error = 0.2
-Step 3: Backpropagation
+</pre>
 
-Error is propagated backward and gradients are calculated.
+<h3>Step 3: Backpropagation</h3>
 
-Step 4: Weight Update
+<p>
+Gradients are computed and propagated backward.
+</p>
 
-Optimizer updates weights:
+<h3>Step 4: Weight Update</h3>
 
-W
-new
-	​
+<pre>
+Wnew = Wold − η(dL/dW)
+</pre>
 
-=W
-old
-	​
+where η = learning rate.
 
-−η
-∂W
-∂L
-	​
+<hr>
 
+<h2>3. Hyperparameters</h2>
 
-where
+<table>
 
-η = learning rate
-L = Loss
-3. Hyperparameters
+<tr>
+<th>Hyperparameter</th>
+<th>Description</th>
+</tr>
 
-Hyperparameters are parameters set before training.
+<tr>
+<td>Learning Rate</td>
+<td>Controls weight updates</td>
+</tr>
 
-Hyperparameter	Description
-Learning Rate	Controls step size during optimization
-Epochs	Number of complete passes through dataset
-Batch Size	Number of samples processed at once
-Hidden Layers	Number of hidden layers
-Neurons	Number of neurons per layer
-Activation Function	Introduces non-linearity
-Optimizer	Updates weights
-Loss Function	Measures prediction error
-Dropout Rate	Prevents overfitting
-Weight Initialization	Initial values of weights
-Common Hyperparameter Values
-Learning Rate
-0.1
-0.01
-0.001 (Most common)
-0.0001
-Batch Size
-16
-32
-64
-128
-256
-Epochs
-10
-50
-100
-200
-4. Activation Functions
+<tr>
+<td>Epochs</td>
+<td>Number of complete training cycles</td>
+</tr>
 
-Activation functions introduce non-linearity and help neural networks learn complex patterns.
+<tr>
+<td>Batch Size</td>
+<td>Number of samples processed together</td>
+</tr>
 
-(1) Sigmoid
+<tr>
+<td>Hidden Layers</td>
+<td>Number of hidden layers</td>
+</tr>
 
-Formula:
+<tr>
+<td>Neurons</td>
+<td>Neurons per layer</td>
+</tr>
 
-σ(x)=
-1+e
-−x
-1
-	​
+<tr>
+<td>Activation Function</td>
+<td>Introduces non-linearity</td>
+</tr>
 
+<tr>
+<td>Loss Function</td>
+<td>Measures error</td>
+</tr>
 
-Range:
+<tr>
+<td>Optimizer</td>
+<td>Updates weights</td>
+</tr>
 
-0 to 1
+<tr>
+<td>Dropout</td>
+<td>Prevents overfitting</td>
+</tr>
 
-Advantages:
+</table>
 
-Good for binary classification.
-Produces probability values.
+<hr>
 
-Disadvantages:
+<h2>4. Activation Functions</h2>
 
-Vanishing gradient problem.
-Slow convergence.
-(2) Tanh
+<h3>1. Sigmoid</h3>
 
-Formula:
+<pre>
+σ(x)=1/(1+e^-x)
+Range: 0 to 1
+</pre>
 
-tanh(x)=
-e
-x
-+e
-−x
-e
-x
-−e
-−x
-	​
+<b>Advantages</b>
 
+<ul>
+<li>Good for binary classification</li>
+<li>Probability output</li>
+</ul>
 
-Range:
+<b>Disadvantages</b>
 
--1 to 1
+<ul>
+<li>Vanishing gradient problem</li>
+<li>Slow convergence</li>
+</ul>
 
-Advantages:
+<hr>
 
-Zero-centered outputs.
-Better than sigmoid.
+<h3>2. Tanh</h3>
 
-Disadvantages:
+<pre>
+tanh(x)= (e^x-e^-x)/(e^x+e^-x)
 
-Vanishing gradient problem.
-(3) ReLU (Rectified Linear Unit)
+Range: -1 to 1
+</pre>
 
-Formula:
+<b>Advantages</b>
 
+<ul>
+<li>Zero-centered output</li>
+<li>Better than sigmoid</li>
+</ul>
+
+<b>Disadvantages</b>
+
+<ul>
+<li>Vanishing gradient problem</li>
+</ul>
+
+<hr>
+
+<h3>3. ReLU</h3>
+
+<pre>
 f(x)=max(0,x)
 
-Range:
+Range: 0 to ∞
+</pre>
 
-0 to ∞
+<b>Advantages</b>
 
-Advantages:
+<ul>
+<li>Fast computation</li>
+<li>Reduces vanishing gradient</li>
+<li>Most widely used</li>
+</ul>
 
-Fast computation.
-Most widely used.
-Reduces vanishing gradient.
+<b>Disadvantages</b>
 
-Disadvantages:
+<ul>
+<li>Dead neuron problem</li>
+</ul>
 
-Dead neuron problem.
-(4) Leaky ReLU
+<hr>
 
-Formula:
+<h3>4. Leaky ReLU</h3>
 
-f(x)={
-x,
-0.01x,
-	​
+<pre>
+f(x)=x , x>0
+0.01x , x<0
+</pre>
 
-x>0
-x<0
-	​
+<b>Advantages</b>
 
+<ul>
+<li>Prevents dead neurons</li>
+</ul>
 
-Advantages:
+<hr>
 
-Solves dead neuron problem.
-(5) Softmax
+<h3>5. Softmax</h3>
 
-Formula:
+<pre>
+P(yi)=exp(xi)/Σexp(xj)
+</pre>
 
-P(y
-i
-	​
+Used for multiclass classification.
 
-)=
-∑e
-x
-j
-	​
+<hr>
 
-e
-x
-i
-	​
+<h2>5. Loss Functions</h2>
 
-	​
+<h3>Mean Squared Error (MSE)</h3>
 
+<pre>
+MSE=(1/n)Σ(y-ŷ)²
+</pre>
 
-Used for:
+Used for regression.
 
-Multi-class classification
+<h3>Mean Absolute Error (MAE)</h3>
 
-Example:
-
-Cat = 0.8
-Dog = 0.15
-Horse = 0.05
-5. Loss Functions
-
-Loss functions measure prediction error.
-
-(1) Mean Squared Error (MSE)
-
-Formula:
-
-MSE=
-n
-1
-	​
-
-∑(y−
-y
-^
-	​
-
-)
-2
-
-Used for:
-
-Regression problems
-
-Advantages:
-
-Simple
-Differentiable
-(2) Mean Absolute Error (MAE)
-
-Formula:
-
-MAE=
-n
-1
-	​
-
-∑∣y−
-y
-^
-	​
-
-∣
-
-Used for:
-
-Regression
+<pre>
+MAE=(1/n)Σ|y-ŷ|
+</pre>
 
 Less sensitive to outliers.
 
-(3) Binary Cross Entropy
+<h3>Binary Cross Entropy</h3>
 
-Formula:
-
+<pre>
 L=−[ylog(p)+(1−y)log(1−p)]
+</pre>
 
-Used for:
+Used for binary classification.
 
-Binary Classification
+<h3>Categorical Cross Entropy</h3>
 
-Examples:
+<pre>
+L=−Σ y log(p)
+</pre>
 
-Spam detection
-Disease prediction
-(4) Categorical Cross Entropy
+Used for multiclass classification.
 
-Formula:
+<h3>Sparse Categorical Cross Entropy</h3>
 
-L=−∑ylog(p)
-
-Used for:
-
-Multi-class Classification
-
-Examples:
-
-MNIST digit recognition
-Image classification
-(5) Sparse Categorical Cross Entropy
-
+<p>
 Used when labels are integers instead of one-hot encoded vectors.
+</p>
 
-Example:
+<hr>
 
-Labels:
-0,1,2,3...
-6. Optimizers
+<h2>6. Optimizers</h2>
 
-Optimizers update weights to minimize loss.
+<h3>Gradient Descent</h3>
 
-(1) Gradient Descent
+<pre>
+W = W − η(dL/dW)
+</pre>
 
-Update Rule:
+<h4>Working</h4>
 
-W=W−η
-∂W
-∂L
-	​
+<ol>
+<li>Calculate loss.</li>
+<li>Compute gradients.</li>
+<li>Update weights.</li>
+<li>Repeat.</li>
+</ol>
 
-Working
-Compute loss.
-Calculate gradients.
-Update weights.
-Repeat.
-Disadvantages
-Slow convergence.
-Can get stuck in local minima.
-(2) Stochastic Gradient Descent (SGD)
+<hr>
 
-Updates weights after every sample.
+<h3>Stochastic Gradient Descent (SGD)</h3>
+
+<p>
+Updates weights after every training sample.
+</p>
 
 Advantages
-Faster.
-Escapes local minima.
-Disadvantages
-Noisy updates.
-(3) Mini-Batch Gradient Descent
 
-Updates weights using a batch of samples.
+<ul>
+<li>Faster convergence</li>
+<li>Escapes local minima</li>
+</ul>
 
-Typical batch sizes:
+<hr>
 
-32
-64
-128
+<h3>Momentum</h3>
 
-Balances speed and stability.
-
-(4) Momentum
-
-Adds previous gradients to current updates.
-
-Update equations:
-
+<pre>
 V = βV + η∇L
 
 W = W − V
+</pre>
 
-Advantages:
-
-Faster convergence.
-Reduces oscillations.
-(5) RMSProp
-
-Adjusts learning rate adaptively.
-
-Update:
-
-S = βS + (1−β)(∇L)^2
-
-W = W − η/(√S+ε)
-
-Advantages:
-
-Efficient for deep networks.
-Handles non-stationary data.
-(6) Adam (Adaptive Moment Estimation)
-
-Most widely used optimizer.
-
-Combines:
-
-Momentum
-RMSProp
-
-Equations:
-
-m = β₁m + (1−β₁)g
-
-v = β₂v + (1−β₂)g²
-
-W = W − η × m/(√v + ε)
-
-Typical values:
-
-Learning rate = 0.001
-β1 = 0.9
-β2 = 0.999
-ε = 10^-8
 Advantages
 
-✔ Fast convergence
+<ul>
+<li>Reduces oscillations</li>
+<li>Faster convergence</li>
+</ul>
 
-✔ Adaptive learning rates
+<hr>
 
-✔ Suitable for large datasets
+<h3>RMSProp</h3>
 
-✔ Most commonly used optimizer
+<pre>
+S = βS + (1−β)(∇L)²
 
-7. Advantages of ANN
+W = W − η/(√S + ε)
+</pre>
 
-✅ Learns complex nonlinear relationships.
+Advantages
 
-✅ High accuracy for large datasets.
+<ul>
+<li>Adaptive learning rate</li>
+<li>Efficient for deep networks</li>
+</ul>
 
-✅ Handles noisy data.
+<hr>
 
-✅ Automatic feature extraction.
+<h3>Adam Optimizer</h3>
 
-✅ Supports classification and regression.
+<p>
+Combines Momentum and RMSProp.
+</p>
 
-✅ Can model highly complex problems.
+<pre>
+m = β1m + (1−β1)g
 
-✅ Applicable to image, text, and speech data.
+v = β2v + (1−β2)g²
 
-8. Disadvantages of ANN
+W = W − η × m/(√v + ε)
+</pre>
 
-❌ Requires large datasets.
+Typical Parameters
 
-❌ Computationally expensive.
+<ul>
+<li>Learning Rate = 0.001</li>
+<li>β1 = 0.9</li>
+<li>β2 = 0.999</li>
+<li>ε = 10^-8</li>
+</ul>
 
-❌ Training can be slow.
+Advantages
 
-❌ Hyperparameter tuning is difficult.
+<ul>
+<li>Fast convergence</li>
+<li>Adaptive learning rates</li>
+<li>Works well on large datasets</li>
+</ul>
 
-❌ Overfitting may occur.
+<hr>
 
-❌ Acts as a black-box model.
+<h2>7. Advantages of ANN</h2>
 
-❌ Requires powerful hardware for deep networks.
+<ul>
+<li>Can learn complex relationships.</li>
+<li>High accuracy.</li>
+<li>Automatic feature extraction.</li>
+<li>Supports classification and regression.</li>
+<li>Handles noisy data.</li>
+<li>Applicable to image, text and speech processing.</li>
+</ul>
 
-9. Applications of ANN
-Computer Vision
-Image Classification
-Object Detection
-Face Recognition
-Natural Language Processing
-Chatbots
-Sentiment Analysis
-Machine Translation
-Healthcare
-Disease Detection
-Medical Imaging
-Finance
-Fraud Detection
-Stock Prediction
-Recommendation Systems
-Netflix
-Amazon
-YouTube
-Autonomous Vehicles
-Lane Detection
-Traffic Sign Recognition
-Conclusion
+<hr>
 
-Artificial Neural Networks are powerful machine learning models capable of learning complex relationships from data. Their performance depends heavily on the choice of activation functions, loss functions, optimizers, and hyperparameters. Optimizers like Adam and activation functions like ReLU have become standard choices due to their efficiency and effectiveness in deep learning applications.
+<h2>8. Disadvantages of ANN</h2>
+
+<ul>
+<li>Requires large datasets.</li>
+<li>Computationally expensive.</li>
+<li>Training can be slow.</li>
+<li>Hyperparameter tuning is difficult.</li>
+<li>May suffer from overfitting.</li>
+<li>Acts as a black-box model.</li>
+</ul>
+
+<hr>
+
+<h2>9. Applications</h2>
+
+<h3>Computer Vision</h3>
+
+<ul>
+<li>Image Classification</li>
+<li>Face Recognition</li>
+<li>Object Detection</li>
+</ul>
+
+<h3>Natural Language Processing</h3>
+
+<ul>
+<li>Chatbots</li>
+<li>Sentiment Analysis</li>
+<li>Machine Translation</li>
+</ul>
+
+<h3>Healthcare</h3>
+
+<ul>
+<li>Disease Detection</li>
+<li>Medical Imaging</li>
+</ul>
+
+<h3>Finance</h3>
+
+<ul>
+<li>Fraud Detection</li>
+<li>Stock Prediction</li>
+</ul>
+
+<hr>
+
+<h2>Conclusion</h2>
+
+<p>
+Artificial Neural Networks are powerful machine learning models capable of learning complex patterns from data.
+Their performance depends heavily on the choice of activation functions, loss functions, optimizers, and hyperparameters.
+Among optimizers, Adam is the most widely used due to its fast convergence and adaptive learning capability.
+</p>
+
+</div>
+
+</body>
+</html>
+
 
