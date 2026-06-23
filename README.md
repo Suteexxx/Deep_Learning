@@ -4,50 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Artificial Neural Network (ANN) Documentation</title>
 
-<style>
-body{
-    font-family: Arial, sans-serif;
-    line-height: 1.8;
-    margin: 40px;
-    background-color:#f5f7fa;
-    color:#333;
-}
-.container{
-    background:white;
-    padding:40px;
-    border-radius:10px;
-    box-shadow:0 0 15px rgba(0,0,0,0.1);
-}
-h1,h2,h3{
-    color:#1E3A8A;
-}
-table{
-    width:100%;
-    border-collapse:collapse;
-    margin-top:15px;
-}
-table,th,td{
-    border:1px solid #ddd;
-}
-th{
-    background:#1E3A8A;
-    color:white;
-}
-th,td{
-    padding:12px;
-    text-align:left;
-}
-code{
-    background:#eee;
-    padding:3px 5px;
-    border-radius:5px;
-}
-ul li{
-    margin-bottom:8px;
-}
-</style>
 </head>
 
 <body>
